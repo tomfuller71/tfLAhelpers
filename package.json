@@ -1,0 +1,23 @@
+{
+  "name": "tf_la_helpers",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Helper classes and functions for LA Bootcamp",
+  "main": "helpers.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomfuller71/tfLAhelpers.git"
+  },
+  "keywords": [
+    "LA35"
+  ],
+  "author": "Tom Fuller",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomfuller71/tfLAhelpers/issues"
+  },
+  "homepage": "https://github.com/tomfuller71/tfLAhelpers#readme"
+}
