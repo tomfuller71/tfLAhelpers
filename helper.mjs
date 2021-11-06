@@ -53,7 +53,7 @@ export class Str {
         const order = isAsc ? 1 : -1
 
 
-        const predicate  = (a, b) => {
+        const predicate = (a, b) => {
             a = a.toLowerCase();
             b = b.toLowerCase();
             if (a > b) return order;
@@ -156,7 +156,7 @@ export class Question {
     ask() {
         let answer = null;
         do {
-            answer = this.validate(prompt(this.question));
+            answer = this.#validate(prompt(this.question));
         } while (answer === null)
         return answer;
     }
@@ -166,15 +166,15 @@ export class Question {
      * @param {string} answer the question answer to be validated. 
      * @returns {string|number|boolean} The question's validated answer value.
      */    
-    validate(answer) {
+    #validate(answer) {
         if (answer === null) { return null;}
         switch (this.answerType) {
             case "string":
-                return this.validateString(answer);
+                return this.#validateString(answer);
             case "number":
-                return this.validateNumber(answer);
+                return this.#validateNumber(answer);
             case "boolean":
-                return this.validateBool(answer);
+                return this.#validateBool(answer);
             default:
                 console.error('Invalid answer type requested in question')
         }
@@ -185,7 +185,7 @@ export class Question {
      * @param {string} answer The string prompt entered by the user
      * @returns {string} The validated string if meets validation criteria or `null` if it doesn't
      */
-    validateString(answer) {
+    #validateString(answer) {
         answer = answer.toLowerCase().trim();
         if (answer === "" || !this.pattern.test(answer))  {
             alert("Need a valid answer");
@@ -209,7 +209,7 @@ export class Question {
      * @param {string} answer The string prompt entered by the user.
      * @returns {number} The validated number that meets validation criteria or `null` if it doesn't.
      */
-    validateNumber(answer) {
+    #validateNumber(answer) {
         const num = parseInt(answer);
         if (isNaN(num)) { alert("Need to enter a number."); return null; }
         if (num < this.min) {
@@ -230,7 +230,7 @@ export class Question {
      * @param {string} answer The `prompt` answer.
      * @returns {boolean} `true` if affirmative, `false` if negative or `null` if neither 
      */
-    validateBool(answer) {
+    #validateBool(answer) {
         const affirmative = /y|yes|true/i;
         const negative = /n|no|false/i;
         if (affirmative.test(answer)) { return true; }
