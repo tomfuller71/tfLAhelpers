@@ -1,6 +1,6 @@
 {
   "name": "tf_la_helpers",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "module",
   "description": "Helper classes and functions for LA Bootcamp",
   "main": "helpers.js",
